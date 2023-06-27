@@ -10,15 +10,38 @@
     <section class="upload-container" >
         <div class="drop-zone">
             <div class="icon-container">
-<img src="file.svg" alt="Fileicon" class="center" draggable="false">
-<img src="file.svg" alt="Fileicon" class="left" draggable="false">
-<img src="file.svg" alt="Fileicon" class="right" draggable="false">
+                <img src="file.svg" alt="Fileicon" class="center" draggable="false">
+                <img src="file.svg" alt="Fileicon" class="left" draggable="false">
+                <img src="file.svg" alt="Fileicon" class="right" draggable="false">
             </div>
             <input type="file" id="fileInput">
    <div class="title">Drop your Files here or , <span class="browseBtn">browse</span></div>
 
         </div>
+        <div class="progress-container">
+            <div class="bg-progress"></div>
+            <div class="inner-container">
+                <div class="title">Uploading... </div>
+                <div class="percent-container"><span id="percent">0</span>%</div>
+                <div class="progress-bar"></div>
+            </div>
+        </div>
+        <div class="sharing-container">
+            <p class="expires">Link expires in 24 hrs</p>
+            <div class="input-container">
+                <input type="text" id="fileURL" readonly >
+                <img src="/copy-Icon.svg" alt="copy icon" id="copyBtn">
 
+            </div>
+            <p>Or Send Via Email</p>
+            <div class="email-container">
+                <form >
+                    <div class="filed">
+                        <label for="Your email"></label>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
     <script src="index.js"></script>
 </body>
