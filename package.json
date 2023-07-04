@@ -1,0 +1,23 @@
+{
+  "name": "JustShare",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Himanshunagwanshi/JustShare.git",
+  "author": "Himanshu Nagwanshi <himanshunagwanshi90@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "serve": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1",
+    "multer": "^1.4.5-lts.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

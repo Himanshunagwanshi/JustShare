@@ -35,14 +35,22 @@
             </div>
             <p>Or Send Via Email</p>
             <div class="email-container">
-                <form >
-                    <div class="filed">
-                        <label for="Your email"></label>
+                <form id="emailForm">
+                    <div class="field">
+                        <label for="Your email">Your email</label>
+                        <input type="email" required name="from-email" id="sender">
                     </div>
+                        <div class="field">
+                        <label for="receiver">Receiver's Email</label>
+                        <input type="email" required name="to-email" id="receiver">
+                    </div>
+                    <button type="submit">Send</button>
                 </form>
             </div>
         </div>
     </section>
+    <div class="upload-vector"></div>
+    <div class="toast"></div>
     <script src="index.js"></script>
 </body>
 </html>
