@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static('public'))
 app.use(express.json());
 const connectDB=require('./config/db');
+const { render } = require("ejs");
 connectDB();
 
 //Template engine
@@ -14,6 +15,9 @@ connectDB();
 app.set('views',path.join(__dirname,'/views'));  
 app.set('view engine','ejs'); 
 //Routes
+app.get('/',function(req,res){
+    res.sendFile('index.html',{root:__dirname});
+})
 app.use('/api/files',require('./routes/files'))
 app.use('/files',require('./routes/show'));
 
