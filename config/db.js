@@ -5,7 +5,9 @@ function connecDB() {
   //Database Connection
 
   mongoose.connect(process.env.MONGO_CONNECTION_URL, {
-  
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+   // useCreateIndex: true,
   });
   const connection = mongoose.connection;
 connection
