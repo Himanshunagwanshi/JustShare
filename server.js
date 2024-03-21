@@ -14,6 +14,7 @@ connectDB();
 
 app.set('views',path.join(__dirname,'/views'));  
 app.set('view engine','ejs'); 
+
 //Routes
 app.get('/',function(req,res){
     res.sendFile('index.html',{root:__dirname});

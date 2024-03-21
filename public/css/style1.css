@@ -10,7 +10,7 @@ body, html{
     height: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    overflow: hidden;  
 
 }
 body,.drop-zone, .upload-container{
@@ -99,8 +99,8 @@ filter: grayscale(0.9);
     margin-bottom: 25px;
     border-radius: 10px;
     position: relative;
-    display: none;
-}
+   display: none; 
+ }
 .progress-container .bg-progress{
   background-color: var(--main-bg-color);
   width: 0%;
@@ -133,9 +133,9 @@ filter: grayscale(0.9);
 .sharing-container{
     width: var(--container-width);
     margin-bottom: 20px;
-    /* display: none; */
+    display: none; 
 }
-p{
+p.expire{
     opacity: .7;
     text-align: center;
 }
@@ -220,10 +220,11 @@ p{
     font-size: 18px;
     transition: transform ease-in-out 0.2s;
 box-shadow: 0px 10px 15px -3px rgba(0,0,0.1), 0px 4px 6px -2px rgba(0,0,0,0.05);
+display: none;
 }
 
 .upload-vector{
-    background: url(./undraw-upload.svg) no-repeat center;
+    background: url(/img/undraw-upload.svg) no-repeat center;
     background-size: contain;
     height: 50vh;
     width: 50vw;

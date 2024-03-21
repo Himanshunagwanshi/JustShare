@@ -22,7 +22,7 @@ const toast = document.querySelector(".toast");
 
 const maxAllowedSize = 100 * 1024 * 1024;
 
-const host = "process.env.APP_BASE_URL/";
+const host = "http://localhost:3000/";
 const uploadURL = `${host}api/files`;
 const emailURL = `${host}api/files/send`;
 
@@ -62,6 +62,7 @@ CopyBtn.addEventListener("click", () => {
 });
 
 const uploadFile = () => {
+  progressContainer.style.display="block";
   if (fileInput.files.length > 1) {
     resetFileInput();
     showToast("Only upload 1 file");
@@ -75,7 +76,7 @@ const uploadFile = () => {
     resetFileInput();
     return;
   }
-  progressContainer.style.Display = "block";
+  
 
   const formData = new FormData();
   formData.append("myfile", file);
@@ -84,18 +85,19 @@ const uploadFile = () => {
   xhr.onreadystatechange = () => {
     //  console.log(xhr.readyState);
     if (xhr.readyState === XMLHttpRequest.DONE) {
-      console.log(xhr.response);
+   //   console.log(xhr.response);
       onUploadSuccess(JSON.parse(xhr.response));
     }
   };
 
   xhr.upload.onprogress = updateProgress;
   xhr.upload.onerror = () => {
-    resetFileInput();
+   resetFileInput();
     showToast(`Error in Upload: ${xhr.statusText}`);
   };
   xhr.open("POST", uploadURL);
   xhr.send(formData);
+  
 };
 const updateProgress = (e) => {
   const percent = Math.round((e.loaded / e.total) * 100);
@@ -106,11 +108,11 @@ const updateProgress = (e) => {
 };
 
 const onUploadSuccess = ({ file: url }) => {
-  console.log(url);
+// console.log(url);
   resetFileInput();
   emailForm[2].removeAttribute("disabled", "true");
-  progressContainer.style.Display = "none";
-  sharingContainer.style.Display = "block";
+  progressContainer.style.display = "none";
+  sharingContainer.style.display = "block";
   fileURLInput.value = url;
 };
 
@@ -120,7 +122,7 @@ const resetFileInput = () => {
 
 emailForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log("Submit Form");
+  //console.log("Submit Form");
   const url = fileURLInput.value;
   const formData = {
     uuid: url.split("/").splice(-1, 1)[0],
@@ -136,16 +138,19 @@ emailForm.addEventListener("submit", (e) => {
     body: JSON.stringify(formData),
   })
     .then((res) => res.json())
-    .then(({ sucess }) => {
-      if (sucess) {
+    .then(({ success }) => {
+      if (success) {
+      
         sharingContainer.style.display = "none";
         showToast("Email Sent");
+        
       }
     });
 });
 
 let toastTimer;
 const showToast = (mssg) => {
+  toast.style.display = "block";
   toast.innerText = mssg;
   toast.style.transform = "translate(-50%, 0)";
   clearTimeout(toastTimer);
