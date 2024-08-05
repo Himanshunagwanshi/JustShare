@@ -22,7 +22,7 @@ const toast = document.querySelector(".toast");
 
 const maxAllowedSize = 100 * 1024 * 1024;
 
-const host = "http://localhost:3000/";
+const host = "https://justshare-amyt.onrender.com/";
 const uploadURL = `${host}api/files`;
 const emailURL = `${host}api/files/send`;
 
